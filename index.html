@@ -74,7 +74,20 @@
             margin-bottom: 20px;
         }
 
-        /* Button Styling */
+        /* Joke Section */
+        .joke-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+        }
+
+        .joke {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
         .button-container {
             display: flex;
             justify-content: center;
@@ -125,24 +138,43 @@
         <a href="contact.html">Contact</a>
 	<a href="suggestions.html">Suggestions</a>
     </div>
-       
         
-    </div>
-
     <!-- Main Content -->
     <div class="container">
         <img src="https://raw.githubusercontent.com/RPxGoon/RPxGoon.github.io/refs/heads/main/media/hello.gif" 
              alt="Image Failed to Load" class="image">
         <h1>Just a Website With No Purpose</h1>
-        <p>Leave a Suggestion!  :]</p>
+        <p>random shitty jokes here for now...</p>
 
-        
+        <!-- Random Joke Section -->
+        <div class="joke-container">
+            <p class="joke" id="joke">Loading joke...</p>
+            <button class="button" onclick="getJoke()">Get Another</button>
+        </div>
     </div>
 
     <!-- Footer --> 
     <div class="footer">
         &copy; 2025 RPxGoon | Built with 💜
     </div>
+
+    <script>
+        // Fetch a random joke from a public API
+        function getJoke() {
+            fetch('https://v2.jokeapi.dev/joke/Any?type=single')
+                .then(response => response.json())
+                .then(data => {
+                    const jokeText = data.joke ? data.joke : "Sorry, no joke found!";
+                    document.getElementById("joke").textContent = jokeText;
+                })
+                .catch(error => {
+                    document.getElementById("joke").textContent = "Failed to fetch joke.";
+                });
+        }
+
+        // Get an initial joke when the page loads
+        window.onload = getJoke;
+    </script>
 
 </body>
 </html>
