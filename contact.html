@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPxGoon's Shit Website</title>
+    <title>Contact | RPxGoon</title>
     <style>
         /* General Styles */
         * {
@@ -42,59 +42,39 @@
         /* Container */
         .container {
             margin-top: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 80vh;
+            padding: 50px;
         }
 
-        /* Image */
-        .image {
-            max-width: 320px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-        .image:hover {
-            transform: scale(1.05);
-        }
-
-        /* Headings & Text */
+        /* Titles */
         h1 {
             font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1s ease-in-out;
+            background: linear-gradient(45deg, #ff00ff, #6200ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
         }
         p {
             font-size: 1.2rem;
             opacity: 0.8;
-            margin-bottom: 20px;
         }
 
-        /* Button Styling */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+        /* Contact Links */
+        .contact-links {
+            margin-top: 20px;
         }
-        .button {
-            padding: 15px 30px;
+        .contact-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
             font-size: 1.1rem;
             color: #ffffff;
             background: linear-gradient(45deg, #ff00ff, #6200ea);
-            border: none;
             border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
+            transition: all 0.3s ease;
             box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.4);
-            display: inline-block;
         }
-        .button:hover {
+        .contact-links a:hover {
             background: linear-gradient(45deg, #6200ea, #ff00ff);
             transform: scale(1.05);
             box-shadow: 0px 0px 25px rgba(255, 0, 255, 0.6);
@@ -102,17 +82,13 @@
 
         /* Footer */
         .footer {
-            margin-top: 50px;
-            padding: 15px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
             background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
             color: white;
             font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
     </style>
 </head>
@@ -125,21 +101,20 @@
         <a href="contact.html">Contact</a>
 	<a href="suggestions.html">Suggestions</a>
     </div>
-       
-        
-    </div>
 
     <!-- Main Content -->
     <div class="container">
-        <img src="https://raw.githubusercontent.com/RPxGoon/RPxGoon.github.io/refs/heads/main/media/hello.gif" 
-             alt="Image Failed to Load" class="image">
-        <h1>Just a Website With No Purpose</h1>
-        <p>Leave a Suggestion!  :]</p>
-
+        <h1>Contact Me</h1>
+        <p>Reach out through the links below:</p>
         
+        <div class="contact-links">
+            <a href="https://github.com/RPxGoon" target="_blank">GitHub</a>
+            <a href="https://steamcommunity.com/id/RPxGoon/" target="_blank">Steam</a>
+            <a href="https://discord.com/users/1336939496939192350" target="_blank">Discord</a>
+        </div>
     </div>
 
-    <!-- Footer --> 
+    <!-- Footer -->
     <div class="footer">
         &copy; 2025 RPxGoon | Built with 💜
     </div>

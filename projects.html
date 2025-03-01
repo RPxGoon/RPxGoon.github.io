@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - RPxGoon</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1e1e2e, #121212);
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar, .footer {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            left: 0;
+            z-index: 100;
+        }
+        .navbar {
+            top: 0;
+        }
+        .footer {
+            bottom: 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            color: #ff00ff;
+        }
+
+        /* Container */
+        .container {
+            flex: 1;
+            margin-top: 80px;
+            padding-bottom: 60px;
+        }
+
+        /* Project Card */
+        .project {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 15px auto;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .project:hover {
+            transform: scale(1.05);
+        }
+        .project h2 {
+            background: linear-gradient(90deg, #ff00ff, #8000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .project p {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        .project a {
+            color: #ff00ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .project a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+	<a href="suggestions.html">Suggestions</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>My Projects</h1>
+        <p>Some random shit I'm working on...</p>
+
+        <div class="project">
+            <h2>3TH1C4L Multi-Tool</h2>
+            <p>A Python-based CLI tool developed for OSINT, Networking, Discord, and Much More.</p>
+            <a href="https://github.com/RPxGoon/3TH1C4L" target="_blank">View on GitHub</a>
+        </div>
+
+
+        <div class="project">
+            <h2>Gmod RP Addons</h2>
+            <p>Some addons ive created, most of them created by CODEBLUE and uploaded by me for easier discovery</p>
+            <a href="https://steamcommunity.com/id/RPxGoon/myworkshopfiles/" target="_blank">View on Steam Workshop</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 RPxGoon | Built with 💜
+    </div>
+
+</body>
+</html>
