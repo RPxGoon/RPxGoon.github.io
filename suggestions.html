@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions | RPxGoon</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1e1e2e, #121212);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            color: #ff00ff;
+        }
+
+        /* Container */
+        .container {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        /* Headings & Text */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
+        }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .suggestion-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .suggestion-form input, .suggestion-form textarea {
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .suggestion-form button {
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            color: #ffffff;
+            background: linear-gradient(45deg, #ff00ff, #6200ea);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .suggestion-form button:hover {
+            background: linear-gradient(45deg, #6200ea, #ff00ff);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="suggestions.html">Suggestions</a>
+    </div>
+        
+    <!-- Main Content -->
+    <div class="container">
+        <h1>We Value Your Suggestions!</h1>
+        <p>Have an idea or feedback? Share it with us!</p>
+
+        <!-- Suggestion Form -->
+        <div class="suggestion-form">
+            <input type="text" id="username" placeholder="Your Name" required>
+            <textarea id="suggestion" placeholder="Your Suggestion" rows="4" required></textarea>
+            <button type="submit" onclick="sendSuggestion()">Submit Suggestion</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 RPxGoon | Built with 💜
+    </div>
+
+    <script>
+        function decodeWebhook(encoded) {
+            return atob(encoded.split('').reverse().join(''));
+        }
+
+        function sendSuggestion() {
+            const username = document.getElementById('username').value;
+            const suggestion = document.getElementById('suggestion').value;
+
+            if (!username || !suggestion) {
+                alert('Please fill in both fields.');
+                return;
+            }
+
+            const encodedWebhook = '==Qex0iTqJEMfZnNQ9VQI92b50SWw4WZqJTT41mMpBlNfN2b0gkV0RGeR50aU1CbyQWV1R2RtEUcwJmTExGTyhkRxsUZX9SNwITO2IjNwEzN0ATOxEDM1MTMvM3av9GaiV2dvkGch9SbvNmLkJ3bjNXak9yL6MHc0RHa';
+            const webhookUrl = decodeWebhook(encodedWebhook);
+
+            const payload = JSON.stringify({
+                content: `Suggestion from [${username}]: ${suggestion}`
+            });
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: payload
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you for your suggestion!');
+                    document.getElementById('username').value = '';
+                    document.getElementById('suggestion').value = '';
+                } else {
+                    alert('Failed to send suggestion. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error sending suggestion:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        }
+    </script>
+
+</body>
+</html>
