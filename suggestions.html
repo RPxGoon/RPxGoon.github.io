@@ -116,7 +116,7 @@
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-	<a href="suggestions.html">Suggestions</a>
+        <a href="suggestions.html">Suggestions</a>
     </div>
         
     <!-- Main Content -->
@@ -138,6 +138,10 @@
     </div>
 
     <script>
+        function decodeWebhook(encoded) {
+            return atob(encoded.split('').reverse().join(''));
+        }
+
         function sendSuggestion() {
             const username = document.getElementById('username').value;
             const suggestion = document.getElementById('suggestion').value;
@@ -147,7 +151,9 @@
                 return;
             }
 
-            const webhookUrl = 'https://discord.com/api/webhooks/1345301848793288734/e79qjoOa4xiBg4kV1otjx5Fn7WtQPtmxXjmAXJlORBwo3tvNTM_dYd96i5KyGvtNbEVT'; 
+            const encodedWebhook = '==Qex0iTqJEMfZnNQ9VQI92b50SWw4WZqJTT41mMpBlNfN2b0gkV0RGeR50aU1CbyQWV1R2RtEUcwJmTExGTyhkRxsUZX9SNwITO2IjNwEzN0ATOxEDM1MTMvM3av9GaiV2dvkGch9SbvNmLkJ3bjNXak9yL6MHc0RHa';
+            const webhookUrl = decodeWebhook(encodedWebhook);
+
             const payload = JSON.stringify({
                 content: `Suggestion from [${username}]: ${suggestion}`
             });
