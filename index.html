@@ -1,4 +1,3 @@
-index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,6 +240,23 @@ index.html
             text-shadow: 0 0 5px rgba(255, 0, 51, 0.3);
         }
 
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+            z-index: 99;
+            display: none;
+        }
+
+        .matrix-active {
+            display: block;
+        }
+
         /* Footer */
         .footer {
             margin-top: auto;
@@ -253,6 +269,17 @@ index.html
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             letter-spacing: 1px;
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff0033, #9d00ff);
+            pointer-events: none;
+            animation: sparkleAnim 1.5s linear forwards;
         }
 
         /* Animations */
@@ -279,17 +306,6 @@ index.html
             60% { transform: translate(2px, 2px) }
             80% { transform: translate(2px, -2px) }
             100% { transform: translate(0) }
-        }
-
-        /* Sparkle effect */
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff0033, #9d00ff);
-            pointer-events: none;
-            animation: sparkleAnim 1.5s linear forwards;
         }
 
         @keyframes sparkleAnim {
@@ -343,13 +359,19 @@ index.html
     </div>
 
     <div class="footer">
-        &copy; 2025 3TH1C4L | Built with precision
+        &copy; 2025 3TH1C4L | Built with 💜
     </div>
+
+    <canvas id="matrix-rain" class="matrix-rain"></canvas>
 
     <script>
         const terminal = document.getElementById('output');
         const input = document.getElementById('terminal-input');
-        
+        const canvas = document.getElementById('matrix-rain');
+        const ctx = canvas.getContext('2d');
+        let matrixInterval;
+        let isMatrixActive = false;
+
         const commands = {
             help: () => `Available commands:
 - help: Show this message
@@ -393,39 +415,104 @@ index.html
                 return new Promise(resolve => {
                     const steps = [
                         'Initiating breach sequence...',
-                        'Bypassing firewall...',
-                        'Cracking encryption...',
-                        'Injecting payload...',
+                        'Scanning target system...',
+                        'Identifying vulnerabilities...',
+                        'Bypassing firewall protocols...',
+                        'Injecting stage 1 payload...',
+                        'Elevating privileges...',
+                        'Attempting system override...',
                         'Establishing persistence...',
-                        'ACCESS DENIED - System protected'
+                        'Executing final payload...',
+                        'CRITICAL ERROR: Advanced countermeasures detected',
+                        'WARNING: System lockdown initiated',
+                        'ACCESS DENIED - Security protocol activated'
                     ];
                     
                     let i = 0;
                     const interval = setInterval(() => {
-                        appendOutput(steps[i], i === steps.length - 1 ? 'error' : '');
+                        appendOutput(steps[i], i >= steps.length - 2 ? 'error' : '');
                         i++;
                         if (i >= steps.length) {
                             clearInterval(interval);
-                            resolve('');
+                            setTimeout(() => {
+                                appendOutput('Connection terminated', 'error');
+                                resolve('');
+                            }, 1000);
                         }
                     }, 600);
                 });
             },
-            
+
             about: () => `3TH1C4L Terminal v1.0
-A simulated penetration testing interface
+Advanced Penetration Testing Interface
 Created by RPxGoon for educational purposes
-© 2025 All rights reserved`,
-            
-            skills: () => `Capabilities:
-• Network Analysis & Enumeration
-• Vulnerability Assessment
-• Exploitation Framework
-• Social Engineering Tools
-• Cryptographic Functions
-• Remote Access Tools
-• Web Application Testing`
+© 2025 All rights reserved
+Type 'matrix' to activate cyber visualization`,
+
+            skills: () => `Available Capabilities:
+• Advanced Network Analysis & Enumeration
+• Vulnerability Assessment & Exploitation
+• Custom Payload Generation & Delivery
+• Social Engineering Framework
+• Cryptographic Operations Suite
+• Remote Access Management
+• Web Application Security Testing
+• System Infiltration Simulation
+• Real-time Attack Visualization`,
+
+            matrix: () => {
+                if (isMatrixActive) {
+                    clearInterval(matrixInterval);
+                    canvas.classList.remove('matrix-active');
+                    isMatrixActive = false;
+                    return 'Matrix visualization deactivated';
+                }
+
+                canvas.classList.add('matrix-active');
+                isMatrixActive = true;
+                initMatrix();
+                return 'Matrix visualization activated';
+            }
         };
+
+        function initMatrix() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const characters = '日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ012345789:・.=*+-<>╋';
+            const fontSize = 14;
+            const columns = canvas.width / fontSize;
+            const drops = [];
+
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.floor(Math.random() * -50); // Random start positions
+            }
+
+            function drawMatrix() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#0F0';
+                ctx.font = fontSize + 'px Fira Code';
+                ctx.textAlign = 'center';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters[Math.floor(Math.random() * characters.length)];
+                    const x = i * fontSize;
+                    const y = drops[i] * fontSize;
+
+                    ctx.fillStyle = `rgba(0, 255, 0, ${Math.random() * 0.5 + 0.5})`;
+                    ctx.fillText(text, x, y);
+
+                    if (y > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+
+            matrixInterval = setInterval(drawMatrix, 33);
+        }
 
         async function handleCommand(cmd) {
             const command = cmd.toLowerCase().trim();
@@ -466,9 +553,13 @@ Created by RPxGoon for educational purposes
             input.focus();
         });
 
-        // Initial message
-        appendOutput('Welcome to 3TH1C4L Terminal v1.0');
-        appendOutput('Type "help" for available commands');
+        // Window resize handler for Matrix effect
+        window.addEventListener('resize', () => {
+            if (isMatrixActive) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
 
         // Sparkle effect
         document.addEventListener('mousemove', (e) => {
@@ -484,6 +575,10 @@ Created by RPxGoon for educational purposes
                 }, 1500);
             }
         });
+
+        // Initial terminal message
+        appendOutput('Welcome to 3TH1C4L Terminal v1.0');
+        appendOutput('Type "help" for available commands');
     </script>
 </body>
 </html>
