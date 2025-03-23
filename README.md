@@ -1,4 +1,4 @@
-# 3TH1C4L Website
+# - 3TH1C4L -
 
 ![3TH1C4L Logo](https://raw.githubusercontent.com/RPxGoon/RPxGoon.github.io/refs/heads/main/media/main.bg.ethical.jpg)
 
