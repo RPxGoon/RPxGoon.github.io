@@ -1,6 +1,7 @@
 # - 3TH1C4L -
 
-![3TH1C4L Logo](https://raw.githubusercontent.com/RPxGoon/RPxGoon.github.io/refs/heads/main/media/main.bg.ethical.jpg)
+![Screenshot 2025-03-23 184711](https://github.com/user-attachments/assets/e88c8e02-0452-407b-a20c-9dd49ed3f8f3)
+
 
 A cybersecurity-themed personal website featuring an interactive terminal interface and project showcase.
 
