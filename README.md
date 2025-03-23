@@ -1,5 +1,3 @@
-# - 3TH1C4L -
-
 ![Screenshot 2025-03-23 184711](https://github.com/user-attachments/assets/e88c8e02-0452-407b-a20c-9dd49ed3f8f3)
 
 
