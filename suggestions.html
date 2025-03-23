@@ -119,14 +119,14 @@
         /* Container */
         .container {
             flex: 1;
-            padding: 120px 20px 60px;
+            padding: 90px 20px 40px; /* Reduced padding */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             max-width: 1200px;
             margin: 0 auto;
-            gap: 2rem;
+            gap: 1.25rem; /* Reduced gap */
             animation: fadeIn 2s ease;
         }
 
@@ -134,8 +134,8 @@
         .suggestion-form {
             background: rgba(0, 0, 0, 0.5);
             border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem auto;
+            padding: 1.5rem; /* Reduced padding */
+            margin: 1rem auto; /* Reduced margin */
             max-width: 600px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -143,7 +143,7 @@
             box-shadow: 0 0 30px rgba(255, 0, 51, 0.2);
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem; /* Reduced gap */
         }
 
         .suggestion-form input, 
@@ -170,15 +170,15 @@
         .suggestion-form button {
             background: linear-gradient(45deg, #ff0033, #9d00ff);
             color: #ffffff;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem; /* Reduced padding */
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem; /* Slightly smaller font */
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 1rem;
+            margin-top: 0.5rem; /* Reduced margin */
             font-family: 'Fira Code', monospace;
         }
 
@@ -189,8 +189,8 @@
 
         /* Headings */
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin: 1rem 0;
+            font-size: clamp(2.5rem, 5vw, 3.5rem); /* Reduced max font size */
+            margin: 0.5rem 0; /* Reduced margin */
             color: #ff0033;
             letter-spacing: 2px;
             animation: fadeSlide 1s ease-out, pulseText 4s ease-in-out infinite;
@@ -199,10 +199,11 @@
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem; /* Slightly smaller */
             letter-spacing: 1px;
             animation: fadeSlide 1s ease-out 0.3s forwards;
             opacity: 0;
+            margin-bottom: 0.5rem; /* Added small margin */
         }
 
         @keyframes fadeSlide {
@@ -234,7 +235,7 @@
         /* Footer */
         .footer {
             margin-top: auto;
-            padding: 1.5rem;
+            padding: 1.25rem; /* Slightly reduced padding */
             background: rgba(0, 0, 0, 0.4);
             color: #ccc;
             font-size: 0.9rem;
@@ -283,6 +284,10 @@
             }
             .nav-links {
                 margin: 10px 0;
+            }
+            .suggestion-form {
+                width: 95%;
+                padding: 1.25rem;
             }
         }
     </style>
@@ -355,6 +360,7 @@
             });
         }
 
+        // Sparkle effect
         document.addEventListener('mousemove', (e) => {
             if(Math.random() > 0.9) {
                 const sparkle = document.createElement('div');
