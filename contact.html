@@ -1,133 +1,326 @@
+.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | RPxGoon</title>
+    <title>Contact | 3TH1C4L</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
+
         /* General Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Fira Code', monospace;
         }
+
         body {
-            background: linear-gradient(135deg, #1e1e2e, #121212);
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.5), rgba(18, 18, 18, 0.5)),
+                        url('https://raw.githubusercontent.com/RPxGoon/RPxGoon.github.io/refs/heads/main/media/main.bg.ethical.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
             text-align: center;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Navbar */
         .navbar {
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.4);
             padding: 15px 0;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 100;
+            box-shadow: 0px 2px 20px rgba(255, 0, 51, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .navbar a {
+
+        .navbar:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff0033, #9d00ff);
+            animation: magicLine 6s linear infinite;
+            box-shadow: 
+                0 0 10px rgba(255, 0, 51, 0.5),
+                0 0 20px rgba(157, 0, 255, 0.3);
+            z-index: 1;
+        }
+
+        .navbar:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                rgba(255, 0, 51, 0.8),
+                rgba(157, 0, 255, 0.8),
+                rgba(255, 0, 51, 0.8));
+            box-shadow: 
+                0 0 15px rgba(255, 0, 51, 0.7),
+                0 0 30px rgba(157, 0, 255, 0.6),
+                0 0 45px rgba(255, 0, 51, 0.5);
+            filter: blur(1px);
+        }
+
+        .brand {
+            color: #ff0033;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-left: 30px;
+            text-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
+            transition: 0.3s;
+            letter-spacing: 2px;
+            animation: floatBrand 3s ease-in-out infinite;
+        }
+
+        .nav-links {
+            margin-right: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a:not(.brand) {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             font-size: 1.2rem;
-            transition: 0.3s;
-        }
-        .navbar a:hover {
-            color: #ff00ff;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 10px;
         }
 
-        /* Main Container */
-        .container {
+        .navbar a:not(.brand):after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(90deg, #ff0033, #9d00ff);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar a:not(.brand):hover:after {
             width: 100%;
-            max-width: 800px;
-            padding: 50px;
-            margin-top: 100px; 
-            flex-grow: 1;
         }
 
-        /* Titles */
-        h1 {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 20px;
+        .navbar a:not(.brand):hover {
+            color: #ff0033;
+            text-shadow: 0 0 10px rgba(255, 0, 51, 0.5);
         }
-        p {
-            font-size: 1.2rem;
-            opacity: 0.8;
+
+        /* Container */
+        .container {
+            flex: 1;
+            padding: 90px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 1.25rem;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 51, 0.3);
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.2);
+            margin: 1rem auto;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Headings */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin: 0.5rem 0;
+            color: #ff0033;
+            letter-spacing: 2px;
+            animation: fadeSlide 1s ease-out, pulseText 4s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            animation: fadeSlide 1s ease-out 0.3s forwards;
         }
 
         /* Contact Links */
         .contact-links {
-            margin-top: 20px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
+            margin-top: 1rem;
         }
+
         .contact-links a {
             display: inline-block;
-            padding: 12px 25px;
-            font-size: 1.1rem;
+            background: linear-gradient(45deg, #ff0033, #9d00ff);
             color: #ffffff;
-            background: linear-gradient(45deg, #ff00ff, #6200ea);
-            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
             min-width: 150px;
-            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 0, 51, 0.2);
         }
+
         .contact-links a:hover {
-            background: linear-gradient(45deg, #6200ea, #ff00ff);
-            transform: scale(1.05);
-            box-shadow: 0px 0px 25px rgba(255, 0, 255, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.4);
         }
 
         /* Footer */
         .footer {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
-            color: white;
+            margin-top: auto;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            color: #ccc;
             font-size: 0.9rem;
-            text-align: center;
+            border-top: 2px solid rgba(255, 0, 51, 0.3);
+            box-shadow: 0 -2px 20px rgba(255, 0, 51, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            letter-spacing: 1px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatBrand {
+            0% { transform: translateY(0) scale(1); filter: brightness(1); }
+            50% { transform: translateY(-5px) scale(1.05); filter: brightness(1.2); }
+            100% { transform: translateY(0) scale(1); filter: brightness(1); }
+        }
+
+        @keyframes magicLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes pulseText {
+            0% { text-shadow: 2px 2px 20px rgba(255, 0, 51, 0.2); }
+            50% { text-shadow: 2px 2px 30px rgba(157, 0, 255, 0.4); }
+            100% { text-shadow: 2px 2px 20px rgba(255, 0, 51, 0.2); }
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff0033, #9d00ff);
+            pointer-events: none;
+            animation: sparkleAnim 1.5s linear forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            .brand {
+                margin: 0 0 10px 0;
+            }
+            .nav-links {
+                margin: 10px 0;
+            }
+            .contact-card {
+                width: 95%;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
     <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-        <a href="suggestions.html">Suggestions</a>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Contact Me</h1>
-        <p>Reach out through the links below:</p>
-        
-        <div class="contact-links">
-            <a href="https://github.com/RPxGoon" target="_blank">GitHub</a>
-            <a href="https://steamcommunity.com/id/RPxGoon/" target="_blank">Steam</a>
-            <a href="https://discord.com/users/1336939496939192350" target="_blank">Discord</a>
+        <a href="index.html" class="brand">3TH1C4L</a>
+        <div class="nav-links">
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="suggestions.html">Suggestions</a>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        &copy; 2025 RPxGoon | Built with 💜
+    <div class="container">
+        <div class="contact-card">
+            <h1>Contact Me</h1>
+            <p class="subtitle">Reach out through these secure channels</p>
+            
+            <div class="contact-links">
+                <a href="https://github.com/RPxGoon" target="_blank">GitHub</a>
+                <a href="https://steamcommunity.com/id/RPxGoon/" target="_blank">Steam</a>
+                <a href="https://discord.com/users/1336939496939192350" target="_blank">Discord</a>
+            </div>
+        </div>
     </div>
 
+    <div class="footer">
+        &copy; 2025 3TH1C4L | Built with 💜
+    </div>
+
+    <script>
+        // Sparkle effect
+        document.addEventListener('mousemove', (e) => {
+            if(Math.random() > 0.9) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = e.pageX + 'px';
+                sparkle.style.top = e.pageY + 'px';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1500);
+            }
+        });
+    </script>
 </body>
 </html>
