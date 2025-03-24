@@ -1,100 +1,51 @@
-![Screenshot 2025-03-23 184711](https://github.com/user-attachments/assets/e88c8e02-0452-407b-a20c-9dd49ed3f8f3)
+# 3TH1C4L MultiTool 🛠️
 
+<p align="center">
 
-A cybersecurity-themed personal website featuring an interactive terminal interface and project showcase.
+<!-- STARS, FORKS, WATCHERS -->
+<img src="https://img.shields.io/github/stars/RPxGoon/3TH1C4L-MultiTool?color=00ff00&label=Stars&logo=github&style=for-the-badge">
+<img src="https://img.shields.io/github/forks/RPxGoon/3TH1C4L-MultiTool?color=00ff00&label=Forks&logo=github&style=for-the-badge">
+<img src="https://img.shields.io/github/watchers/RPxGoon/3TH1C4L-MultiTool?color=00ff00&label=Watchers&logo=github&style=for-the-badge">
 
-## 🌐 Live Demo
+<!-- DOWNLOADS -->
+<img src="https://img.shields.io/github/downloads/RPxGoon/3TH1C4L-MultiTool/total?color=purple&label=Downloads&style=for-the-badge">
+<img src="https://img.shields.io/github/v/release/RPxGoon/3TH1C4L-MultiTool?label=Latest%20Release&color=purple&style=for-the-badge">
 
-Visit the live site: [3TH1C4L Website](https://rpxgoon.github.io)
+<!-- ACTIVITY -->
+<img src="https://img.shields.io/github/last-commit/RPxGoon/3TH1C4L-MultiTool?color=red&label=Last%20Commit&style=for-the-badge">
+<img src="https://img.shields.io/github/commit-activity/m/RPxGoon/3TH1C4L-MultiTool?color=red&label=Commits%20Per%20Month&style=for-the-badge">
 
-## ✨ Features
+<!-- ISSUES AND PRS -->
+<img src="https://img.shields.io/github/issues/RPxGoon/3TH1C4L-MultiTool?color=orange&label=Open%20Issues&style=for-the-badge">
+<img src="https://img.shields.io/github/issues-closed/RPxGoon/3TH1C4L-MultiTool?color=orange&label=Closed%20Issues&style=for-the-badge">
+<img src="https://img.shields.io/github/issues-pr/RPxGoon/3TH1C4L-MultiTool?color=orange&label=Pull%20Requests&style=for-the-badge">
 
-- **Interactive Terminal**: Fully functional command-line interface with multiple commands
-- **Matrix Effect**: Toggle-able Matrix rain animation
-- **Project Showcase**: Highlighting various development projects
-- **Suggestion System**: Discord webhook integration for user feedback
-- **Responsive Design**: Mobile-friendly interface
-- **Modern UI Effects**: Including sparkles, glowing elements, and smooth animations
+<!-- LICENSE -->
+<img src="https://img.shields.io/github/license/RPxGoon/3TH1C4L-MultiTool?color=lightgrey&style=for-the-badge">
 
-## 🛠️ Commands
+<!-- CODE -->
+<img src="https://img.shields.io/github/languages/top/RPxGoon/3TH1C4L-MultiTool?color=cyan&label=Main%20Language&style=for-the-badge">
+<img src="https://img.shields.io/github/languages/count/RPxGoon/3TH1C4L-MultiTool?color=cyan&label=Languages&style=for-the-badge">
 
-The terminal supports various commands:
+<!-- SIZE & VIEWS -->
+<img src="https://img.shields.io/github/repo-size/RPxGoon/3TH1C4L-MultiTool?color=yellow&label=Repo%20Size&style=for-the-badge">
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/RPxGoon/3TH1C4L-MultiTool&count_bg=%2300ff00&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Visitors&edge_flat=false">
 
-- `help`: Display available commands
-- `clear`: Clear terminal screen
-- `scan`: Perform mock network scan
-- `hack`: Execute mock system breach attempt
-- `about`: Show terminal information
-- `skills`: List available capabilities
-- `matrix`: Toggle Matrix visualization
+<!-- PLATFORM -->
+<img src="https://img.shields.io/badge/Platform-Windows%20|%20Linux-00ff00?style=for-the-badge&logo=linux">
 
-## 🔧 Tech Stack
+<!-- CUSTOM TOOL TAGS -->
+<img src="https://img.shields.io/badge/Category-OSINT-purple?style=for-the-badge&logo=hackaday">
+<img src="https://img.shields.io/badge/Category-Networking-purple?style=for-the-badge&logo=hackaday">
+<img src="https://img.shields.io/badge/Category-Discord%20Tools-purple?style=for-the-badge&logo=discord">
 
-- HTML5
-- CSS3 (with modern features like backdrop-filter)
-- Vanilla JavaScript
-- Canvas API for Matrix effect
-- Discord Webhook API
+<!-- DEVELOPMENT -->
+<img src="https://img.shields.io/badge/Status-Active-00ff00?style=for-the-badge">
+<img src="https://img.shields.io/badge/Contributions-Welcome-00ff00?style=for-the-badge">
 
-## 📂 Project Structure
+<!-- MADE WITH -->
+<img src="https://img.shields.io/badge/Made%20With-Python-ff69b4?style=for-the-badge&logo=python">
+<img src="https://img.shields.io/badge/Terminal-CLI-ffffff?style=for-the-badge&logo=gnometerminal">
 
-```
-RPxGoon.github.io/
-├── index.html       # Main terminal interface
-├── projects.html    # Project showcase
-├── contact.html     # Contact information
-├── suggestions.html # Feedback system
-└── media/          # Image assets
-```
+</p>
 
-## 🚀 Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/RPxGoon/RPxGoon.github.io.git
-```
-
-2. Navigate to project directory:
-```bash
-cd RPxGoon.github.io
-```
-
-3. Open `index.html` in a modern web browser or use a local server.
-
-## 💻 Development
-
-To run locally with hot reload using Python:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit `http://localhost:8000` in your browser.
-
-## 🎨 Customization
-
-- Update `main.bg.ethical.jpg` for background changes
-- Modify color scheme in CSS variables
-- Add new terminal commands in the `commands` object
-- Customize project cards in `projects.html`
-
-## 📝 License
-
-Created by RPxGoon © 2025. All rights reserved.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 📧 Contact
-
-For suggestions or feedback, use the built-in suggestions form on the website.
-
----
-Built with 💜 by RPxGoon
